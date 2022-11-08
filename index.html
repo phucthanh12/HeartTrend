@@ -24,52 +24,23 @@
 
       .box {
       width: 100%;
-      position: absolute;
+      position: relative;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       display: flex;
       flex-direction: column;
     }
-    
-      canvas {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-      }
+  
 
       #pinkboard {
       position: relative;
       margin: auto;
-      height: 600px;
-      width: 600px;
+      height: 550px;
+      width: 550px;
       animation: animate 1.3s infinite;
     }
 
-    #pinkboard:before,
-    #pinkboard:after {
-      content: '';
-      position: absolute;
-      background: #FF5CA4;
-      width: 100px;
-      height: 160px;
-      border-top-left-radius: 50px;
-      border-top-right-radius: 50px;
-    }
-
-    #pinkboard:before {
-      left: 100px;
-      transform: rotate(-45deg);
-      transform-origin: 0 100%;
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-        0 10px 10px rgba(0, 0, 0, 0.22);
-    }
-
-    #pinkboard:after {
-      left: 0;
-      transform: rotate(45deg);
-      transform-origin: 100% 100%;
-    }
 
     @keyframes animate {
       0% {
@@ -91,9 +62,9 @@
 
     h1 {
       position: absolute;
-      left: 47%;
+      left: 50%;
       top: 45%;
-      transform: translate(-6%,-45%);
+      transform: translate(-40%,-45%);
       font-size: 16px;
       font-family: 'Great Vibes', cursive;
       color: #ff5c61;
@@ -128,10 +99,9 @@
 
   <body>
     <div class="box">
-      <canvas id="pinkboard"></canvas>
-      <h1></h1>
+        <canvas id="pinkboard"></canvas>
+        <h1></h1>
     </div>
-
     <script>
       /*
 
@@ -423,9 +393,8 @@
         var image = (function () {
           var canvas = document.createElement("canvas"),
             context = canvas.getContext("2d");
-
+            
           canvas.width = settings.particles.size;
-
           canvas.height = settings.particles.size;
 
           // helper function to create the path
@@ -505,7 +474,6 @@
             var pos = pointOnHeart(Math.PI - 2 * Math.PI * Math.random());
 
             var dir = pos.clone().length(settings.particles.velocity);
-
             particles.add(
               canvas.width / 2 + pos.x,
               canvas.height / 2 - pos.y,
@@ -539,6 +507,7 @@
           render();
         }, 10);
       })(document.getElementById("pinkboard"));
+      
     </script>
   </body>
 </html>
